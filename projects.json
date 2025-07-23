@@ -92,13 +92,13 @@
         "year": "2025",
         "category": "App Development",
         "tech_used": ["python", "redis", "html", "chromeextension", "mysql", "awsec2", "selenium"],
-        "description": "",
+        "description": "Developed and maintained large-scale web scraping systems for <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>'s Flare platform. The system adapts to different website structures and handles anti-bot measures while collecting data from multiple ticket marketplaces. <br><br>My work involved creating robust scraping mechanisms that can handle different website layouts, implementing rate limiting and proxy rotation, developing error handling and retry mechanisms, and ensuring data quality and consistency across different sources.",
         "impact": {
-            "impact_1": ""
+            "impact_1": "Maintains data collection from 10+ major ticket marketplaces",
+            "impact_2": "Ensures 99%+ uptime for critical data feeds"
         },
         "pictures_path": {
             "picture_1": "FlareScrapping1.png"
-
         }
     }
 
