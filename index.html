@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCard - Personal Portfolio</title>
+  <title>Enrique's Portfolio</title>
 
   <!--
     - favicon
@@ -23,6 +23,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
 </head>
 
 <body>
@@ -42,13 +51,13 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
+          <img src="./assets/images/my-avatar1.png" alt="Enrique Alonso">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Richard hanrick</h1>
+          <h1 class="name" title="Enrique Alonso">Enrique Alonso</h1>
 
-          <p class="title">Web developer</p>
+          <p class="title">Full Stack Developer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
@@ -74,7 +83,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
+              <a href="mailto:exa8981@gmail.com" class="contact-link">exa8981@gmail.com</a>
             </div>
 
           </li>
@@ -88,24 +97,11 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+              <a href="tel:+13055052646" class="contact-link">+1 (305) 505-2646</a>
             </div>
 
           </li>
 
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">June 23, 1982</time>
-            </div>
-
-          </li>
 
           <li class="contact-item">
 
@@ -116,7 +112,7 @@
             <div class="contact-info">
               <p class="contact-title">Location</p>
 
-              <address>Sacramento, California, USA</address>
+              <address>Miami, Florida, USA</address>
             </div>
 
           </li>
@@ -128,20 +124,8 @@
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
+            <a href="https://www.linkedin.com/in/enriquealonso0/" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
 
@@ -170,22 +154,22 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link active" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link " data-nav-link>About</button>
           </li>
 
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Resume</button>
           </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
+          <li class="navbar-item" style="display: none;">
             <button class="navbar-link" data-nav-link>Blog</button>
           </li>
 
-          <li class="navbar-item">
+          <li class="navbar-item" style="display: none;">
             <button class="navbar-link" data-nav-link>Contact</button>
           </li>
 
@@ -194,14 +178,182 @@
       </nav>
 
 
+      <!--
+        - #PORTFOLIO
+      -->
 
+      <article class="portfolio active" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web design</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web development</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="#" data-project="ticketflipping" class="project-link">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-1.jpg" alt="ticketflipping" loading="lazy">
+                  
+                  <div class="tech-bar" data-tech-bar="ticketflipping">
+                    <div class="tech-scroll">
+                      <!-- Tech icons will be populated by JavaScript -->
+                    </div>
+                  </div>
+                </figure>
+
+                <h3 class="project-title">Ticketflipping Platform</h3>
+
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="data analysis">
+              <a href="#" data-project="energy-analysis" class="project-link">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-2.png" alt="energy analysis" loading="lazy">
+                  
+                  <div class="tech-bar" data-tech-bar="energy-analysis">
+                    <div class="tech-scroll">
+                      <!-- Tech icons will be populated by JavaScript -->
+                    </div>
+                  </div>
+                </figure>
+
+                <h3 class="project-title">Industrial Energy Analysis</h3>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!-- Project Detail Section -->
+        <section class="project-detail" id="project-detail" style="display: none;">
+          
+          <div class="project-detail-header">
+            <button class="back-btn" id="back-to-projects">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+              <span>Back to Projects</span>
+            </button>
+          </div>
+
+          <div class="project-detail-content">
+            
+            <div class="project-title-section">
+              <h2 class="project-detail-title" id="project-detail-title">Project Title</h2>
+              <span class="project-year" id="project-year">2024</span>
+            </div>
+
+            <!-- Tech Icons Bar for Project Detail -->
+            <div class="project-detail-tech-bar" id="project-detail-tech-bar">
+              <!-- Tech icons will be populated by JavaScript -->
+            </div>
+
+            <div class="project-description">
+              <h3 class="h3">Description</h3>
+              <p id="project-description-text">Project description will appear here...</p>
+            </div>
+
+            <div class="project-impact">
+              <h3 class="h3 impact-title">
+                <span>Impact</span>
+                <button class="impact-toggle" id="impact-toggle">
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+              </h3>
+              <div class="impact-content" id="impact-content">
+                <ul id="impact-list">
+                  <li>Impact points will be listed here</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-gallery">
+              <h3 class="h3">Gallery</h3>
+              <div class="gallery-grid" id="gallery-grid">
+                <!-- Gallery images will be populated here -->
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+      </article>
 
 
       <!--
         - #ABOUT
       -->
 
-      <article class="about  active" data-page="about">
+      <article class="about" data-page="about">
 
         <header>
           <h2 class="h2 article-title">About me</h2>
@@ -209,17 +361,13 @@
 
         <section class="about-text">
           <p>
-            I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
-            I enjoy
-            turning complex problems into simple, beautiful and intuitive designs.
+            I'm a Full Stack Developer and Data Engineer from Miami, Florida, with a strong background in Industrial & Systems Engineering. 
+            I specialize in building robust backend systems, developing AI solutions, and creating efficient data pipelines that solve complex business problems.
           </p>
 
           <p>
-            My job is to build your website so that it is functional and user-friendly but at the same time attractive.
-            Moreover, I
-            add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
-            across your
-            message and identity in the most creative way. I created web design for many famous brand companies.
+            Currently working at Ticketflipping, I've developed Chrome extensions, built 30+ APIs, and implemented automated data scraping systems that process millions of data points. 
+            My passion lies in transforming raw data into actionable insights and creating scalable solutions that drive business growth.
           </p>
         </section>
 
@@ -237,15 +385,14 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
+                <img src="./assets/images/icon-dev.svg" alt="backend development icon" width="40">
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web design</h4>
+                <h4 class="h4 service-item-title">Backend Development</h4>
 
                 <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
+                  Building scalable APIs, microservices, and server-side applications using Django, Python, and SQL.
                 </p>
               </div>
 
@@ -254,14 +401,14 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                <img src="./assets/images/icon-app.svg" alt="database engineering icon" width="40">
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
+                <h4 class="h4 service-item-title">Database Engineering</h4>
 
                 <p class="service-item-text">
-                  High-quality development of sites at the professional level.
+                  Designing efficient database schemas, optimizing queries, and managing data pipelines.
                 </p>
               </div>
 
@@ -270,14 +417,14 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+                <img src="./assets/images/icon-design.svg" alt="AI development icon" width="40">
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
+                <h4 class="h4 service-item-title">AI Development</h4>
 
                 <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
+                  Creating intelligent solutions using machine learning, data analysis, and automation to solve complex business problems.
                 </p>
               </div>
 
@@ -286,14 +433,14 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+                <img src="./assets/images/icon-photo.svg" alt="data scraping icon" width="40">
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
+                <h4 class="h4 service-item-title">Data Scraping</h4>
 
                 <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
+                  Automated data extraction from web sources using Selenium, Python, and custom scraping solutions for business intelligence.
                 </p>
               </div>
 
@@ -308,7 +455,7 @@
           - testimonials
         -->
 
-        <section class="testimonials">
+        <section class="testimonials" style="display: none;">
 
           <h3 class="h3 testimonials-title">Testimonials</h3>
 
@@ -336,7 +483,7 @@
               </div>
             </li>
 
-            <li class="testimonials-item">
+            <li class="testimonials-item" style="display: none;">
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
@@ -456,7 +603,7 @@
           - clients
         -->
 
-        <section class="clients">
+        <section class="clients" style="display: none;">
 
           <h3 class="h3 clients-title">Clients</h3>
 
@@ -532,41 +679,26 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">University school of the arts</h4>
+              <h4 class="h4 timeline-item-title">University of Miami</h4>
 
-              <span>2007 — 2008</span>
+              <span>2020 — 2024</span>
 
               <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+                Bachelor of Industrial & Systems Engineering with a 3.84 GPA. Green Belt Six Sigma Certified. 
+                Relevant coursework in Operations Research, Project Management, Data Analysis, and Computer-Aided Manufacturing.
               </p>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">New york academy of art</h4>
+              <h4 class="h4 timeline-item-title">Certifications</h4>
 
-              <span>2006 — 2007</span>
-
-              <p class="timeline-text">
-                Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est
-                omnis..
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">High school of art and design</h4>
-
-              <span>2002 — 2004</span>
+              <span>2022 — 2024</span>
 
               <p class="timeline-text">
-                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur
-                magni dolores
-                eos.
+                Google Project Management Stage 3 Certified, Six Sigma Green Belt, Hispanic Scholarship Fund Scholar, 
+                UM Presidential Scholarship recipient.
               </p>
 
             </li>
@@ -589,42 +721,39 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Creative director</h4>
+              <h4 class="h4 timeline-item-title">Full Stack Developer - Ticketflipping</h4>
 
-              <span>2015 — Present</span>
+              <span>Mar 2024 — Present</span>
 
               <p class="timeline-text">
-                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
-                molestias
-                exceptur.
+                Developed Chrome extensions with seat price heatmaps, built 30+ APIs in Django, and implemented automated data scraping systems. 
+                Enhanced existing products increasing codebase by 40% on a $1M yearly product.
               </p>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Art director</h4>
+              <h4 class="h4 timeline-item-title">Senior Energy Analyst - University of Miami</h4>
 
-              <span>2013 — 2015</span>
+              <span>Sept 2022 — Mar 2024</span>
 
               <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+                Analyzed energy consumption of 30+ industrial facilities for DOE grant projects. Led team of 10, 
+                developed business cases worth $1.5M in energy savings using data analysis and Excel.
               </p>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Web designer</h4>
+              <h4 class="h4 timeline-item-title">Project Management Intern - Miami HEAT</h4>
 
-              <span>2010 — 2013</span>
+              <span>June 2023 — July 2023</span>
 
               <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+                Applied Waterfall and Agile methodologies across three projects worth $500K. Led team of 10 to develop 
+                business plan generating $2.5M in increased revenue through strategic planning.
               </p>
 
             </li>
@@ -642,33 +771,7 @@
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">Web design</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Graphic design</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Branding</h5>
+                <h5 class="h5">Python & Django</h5>
                 <data value="90">90%</data>
               </div>
 
@@ -681,12 +784,38 @@
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="50">50%</data>
+                <h5 class="h5">JavaScript & APIs</h5>
+                <data value="85">85%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">SQL & Database Design</h5>
+                <data value="85">85%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Data Scraping & Automation</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
               </div>
 
             </li>
@@ -696,249 +825,6 @@
         </section>
 
       </article>
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web design</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Finance</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Orizon</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Manager</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
 
 
       <!--
@@ -1179,6 +1065,23 @@
     </div>
 
   </main>
+
+  <!-- Gallery Modal -->
+  <div class="gallery-modal" id="gallery-modal">
+    <div class="gallery-modal-content">
+      <button class="gallery-modal-close" id="gallery-modal-close">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <button class="gallery-nav prev" id="gallery-prev">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <img id="gallery-modal-img" src="" alt="Gallery image">
+      <button class="gallery-nav next" id="gallery-next">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+      <div class="gallery-counter" id="gallery-counter">1 / 3</div>
+    </div>
+  </div>
 
 
 
