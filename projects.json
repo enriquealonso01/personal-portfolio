@@ -94,13 +94,47 @@
         "tech_used": ["python", "redis", "html", "chromeextension", "mysql", "awsec2", "selenium"],
         "description": "Developed and maintained large-scale web scraping systems for <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>'s Flare platform. The system adapts to different website structures and handles anti-bot measures while collecting data from multiple ticket marketplaces. <br><br>My work involved creating robust scraping mechanisms that can handle different website layouts, implementing rate limiting and proxy rotation, developing error handling and retry mechanisms, and ensuring data quality and consistency across different sources.",
         "impact": {
-            "impact_1": "Maintains data collection from 10+ major ticket marketplaces",
+            "impact_1": "Maintains data collection from 4+ major ticket marketplaces",
             "impact_2": "Ensures 99%+ uptime for critical data feeds"
         },
         "pictures_path": {
-            "picture_1": "FlareScrapping1.png"
+            "picture_1": "FlareScrapping1.png",
+            "picture_2": "Flare4.png"
+        }
+    },    
+    {
+        "title": "New Database Schema for Flare",
+        "year": "2025",
+        "category": "App Development",
+        "tech_used": ["python", "redis", "html", "chromeextension", "mysql", "awsec2", "selenium"],
+        "description": "As part of my work with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>, I was tasked with developing a new database schema for Flare. Ticketflipping was initilly created to serve an specific market, which is why a new schema was needed in order to scale the opertion. The new schema was designed to improve the performance and scalability of the platform, and to make it easier to maintain and extend. <br><br>My work involved designing the new schema, implementing it in the codebase, and testing it to ensure it works as expected. I also worked on the migration of the data from the old schema to the new one, and on the integration of the new schema with the rest of the platform. The main challenge was doing this without creating any downtime in production.",
+        "impact": {
+            "impact_1": "Consolidates all events (primary and secondary), artists, venues, and inventory tracking into a single table",
+            "impact_2": "Opens the door to new features such as global events, and global inventory tracking",
+            "impact_3": "Improves the performance of the platform by 30%"
+        },
+        "pictures_path": {
+            "picture_1": "FlareScrapping1.png",
+            "picture_2": "Flare4.png"
+        }
+    },    
+    {
+        "title": "Way of Santiago - Operations Research",
+        "year": "2023",
+        "category": "Model Development",
+        "tech_used": ["python", "googlecolab", "pulp"],
+        "description": "As part of my Industrial & Systems Engineering degree, I developed a project that uses Operations Research to find the most optimal stops to take when traveling the way of Santiago. If you are not aware of what the Way of Santiago is, <a href=\"https://www.youtube.com/watch?v=sdADQrawzrw\" target=\"_blank\">here is a summary of it</a><br><br>The project was developed in Google Colab. The main challenge was collecting enough data, and developing the model by hand. After these, I was able to use pulp, a python linear programming library, to solve the problem.<br><br>Feel free to try it out yourself and see the code <a href=\"https://colab.research.google.com/drive/17TuT4Bnby5hpGAk1WJCy5pg_eOC4VETM?usp=sharing\" target=\"_blank\">here</a>.",
+        "impact": {
+            "impact_1": "Optimizes route planning across 6 different paths with ~100 stopping points using linear programming",
+            "impact_2": "Minimizes daily walking distance deviation based on user preferences (10-30km, 4-9 days)",
+            "impact_3": "Generates interactive downloadable maps and route summaries for optimal pilgrimage planning"
+        },
+        "pictures_path": {
+            "picture_1": "Santiago1.png",
+            "picture_2": "Santiago2.png",
+            "picture_3": "Santiago3.png",
+            "picture_4": "Santiago4.png"
         }
     }
-
 
 ]
