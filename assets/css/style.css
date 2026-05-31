@@ -2095,8 +2095,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 .project-detail-tech-bar .tech-icon {
-  width: 100px !important;
-  height: 100px !important;
+  width: auto !important;
+  height: 40px !important;
   object-fit: contain !important;
   filter: brightness(0.8);
   transition: filter var(--transition-1);
@@ -2413,8 +2413,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
   
   .project-detail-tech-bar .tech-icon {
-    width: 80px !important;
-    height: auto !important;
+    width: auto !important;
+    height: 36px !important;
   }
   
   .gallery-grid {
@@ -2425,8 +2425,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 @media (min-width: 768px) {
   
   .project-detail-tech-bar .tech-icon {
-    width: 90px !important;
-    height: 90px !important;
+    width: auto !important;
+    height: 40px !important;
   }
   
   .gallery-grid {
@@ -2438,7 +2438,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   
   .project-detail-tech-bar .tech-icon {
     width: auto !important;
-    height: 80px !important;
+    height: 40px !important;
   }
   
   .gallery-grid {
@@ -2484,4 +2484,43 @@ textarea.form-input::-webkit-resizer { display: none; }
   flex-shrink: 0 !important;
   display: block !important;
   box-sizing: border-box !important;
+}
+
+
+
+/*-----------------------------------*\
+  #IMAGE & STACK-ICON LOADERS
+\*-----------------------------------*/
+
+@keyframes loader-shimmer {
+  0%   { background-position: 150% 0; }
+  100% { background-position: -150% 0; }
+}
+
+/* project thumbnail skeleton (.project-img already has position:relative; overflow:hidden) */
+.project-img.is-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background-color: #1f1f22;
+  background-image: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.10) 50%, transparent 80%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: loader-shimmer 1.25s linear infinite;
+}
+
+/* fade the thumbnail in once it has loaded (keeps the existing hover transition) */
+.project-img img { transition: var(--transition-1), opacity 0.45s ease; }
+.project-img.is-loading img { opacity: 0; }
+
+/* stack-icon skeleton */
+.tech-icon.is-loading {
+  min-width: 34px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  background-image: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.18) 50%, transparent 80%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: loader-shimmer 1.25s linear infinite;
 }

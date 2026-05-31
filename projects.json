@@ -1,5 +1,39 @@
 [
     {
+        "title": "Broker Copilot",
+        "year": "2026",
+        "category": "AI",
+        "tech_used": ["langflow", "openai", "python", "django", "mysql", "awselastic", "awsec2", "javascript", "html", "css"],
+        "description": "As part of my work with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>, I am building Broker Copilot, a ChatGPT-style assistant that lets ticket brokers chat with their own point-of-sale data. It connects to a customer's Skybox or Lysted POS account and answers questions about their inventory, sales, and pricing in plain language.<br><br>The agentic workflow is built with <a href=\"https://www.langflow.org/\" target=\"_blank\">Langflow</a>, self-deployed on a private EC2 instance. My work spans the full product: designing the Langflow flow and tiered agent prompts (lite, pro, elite), building the Django chat application, integrating the POS data, and deploying it via AWS Elastic Beanstalk. Broker Copilot is set to launch publicly in 2026.",
+        "impact": {
+            "impact_1": "Gives brokers natural-language access to their entire POS history, with no exports or manual queries needed",
+            "impact_2": "Tiered prompt design (lite, pro, elite) serves every subscription level from a single Langflow deployment"
+        },
+        "pictures_path": {
+            "picture_1": "BrokerCopilot1.png",
+            "picture_2": "BrokerCopilot2.png",
+            "picture_3": "BrokerCopilot3.png",
+            "picture_4": "BrokerCopilot4.png"
+        }
+    },
+    {
+        "title": "Social Control Hub",
+        "year": "2026",
+        "category": "App Development",
+        "tech_used": ["python", "javascript", "html", "css"],
+        "description": "Social Control Hub is a personal project where I built a cross-platform social media analytics platform end to end. It tracks the performance of profiles across <a href=\"https://www.youtube.com/\" target=\"_blank\">YouTube</a>, <a href=\"https://www.facebook.com/\" target=\"_blank\">Facebook</a>, <a href=\"https://www.instagram.com/\" target=\"_blank\">Instagram</a>, and <a href=\"https://www.tiktok.com/\" target=\"_blank\">TikTok</a>, pulling each platform's numbers into a single dashboard that reports reach, engagement, and growth over a rolling 30-day window.<br><br>I own the entire pipeline and designed the whole thing myself: the data ingestion from each platform, the data model, and the dashboard. It consolidates views, followers, likes, and comments from every channel into unified totals, with per-profile and per-platform breakdowns, daily time-series charts, and one-click TSV and Markdown exports.",
+        "impact": {
+            "impact_1": "Summarizes a combined reach of 7.1M+ views and 10.1K+ followers across YouTube, Facebook, Instagram, and TikTok",
+            "impact_2": "Aggregates 58.6K+ likes and 139 comments from every tracked profile into unified cross-platform totals",
+            "impact_3": "Refreshes daily, with per-profile and per-platform breakdowns over a rolling 30-day window"
+        },
+        "pictures_path": {
+            "picture_1": "SocialControlHub1.png",
+            "picture_2": "SocialControlHub2.png",
+            "picture_3": "SocialControlHub3.png"
+        }
+    },
+    {
         "title": "RAG AI Assistant",
         "year": "2025",
         "category": "AI",

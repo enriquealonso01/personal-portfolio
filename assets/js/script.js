@@ -161,6 +161,31 @@ let currentImageIndex = 0;
 let projectData = {};
 let allProjects = [];
 
+// Show a shimmer skeleton on an image until it has finished loading
+function trackImageLoading(img, skeletonEl) {
+  if (!img) return;
+
+  const onLoaded = function () {
+    img.classList.remove('is-loading');
+    img.classList.add('is-loaded');
+    if (skeletonEl) skeletonEl.classList.remove('is-loading');
+  };
+
+  const onFailed = function () {
+    img.classList.remove('is-loading');
+    if (skeletonEl) skeletonEl.classList.remove('is-loading');
+  };
+
+  // already cached/decoded before the listeners were attached
+  if (img.complete && img.naturalWidth > 0) {
+    onLoaded();
+    return;
+  }
+
+  img.addEventListener('load', onLoaded, { once: true });
+  img.addEventListener('error', onFailed, { once: true });
+}
+
 // Load projects from JSON file
 async function loadProjects() {
   try {
@@ -213,7 +238,7 @@ function renderProjects() {
     
     projectItem.innerHTML = `
       <a href="#" data-project="${projectId}" class="project-link">
-        <figure class="project-img">
+        <figure class="project-img is-loading">
           <div class="project-item-icon-box">
             <ion-icon name="eye-outline"></ion-icon>
           </div>
@@ -229,6 +254,10 @@ function renderProjects() {
     `;
     
     projectList.appendChild(projectItem);
+
+    // attach the loading skeleton to this card's thumbnail
+    const projectFigure = projectItem.querySelector('.project-img');
+    trackImageLoading(projectFigure.querySelector(':scope > img'), projectFigure);
   });
   
   // Populate tech bars after rendering
@@ -299,11 +328,14 @@ function populateTechBars() {
       
       // Create tech icons
       const techIcons = project.technologies.map(tech => {
-        return `<img src="./assets/logo/${tech}.png" alt="${tech}" class="tech-icon" onerror="this.onerror=null;this.src='./assets/logo/${tech}.png';this.onerror=function(){this.style.display=\'none\'}">`;
+        return `<img src="./assets/logo/${tech}.png" alt="${tech}" class="tech-icon is-loading" onerror="this.onerror=null;this.src='./assets/logo/${tech}.png';this.onerror=function(){this.style.display=\'none\'}">`;
       }).join('');
       
       // Duplicate the icons for seamless scrolling (add extra space to ensure smooth transition)
       techScroll.innerHTML = techIcons + techIcons + techIcons;
+
+      // attach the loading skeleton to each stack icon
+      techScroll.querySelectorAll('.tech-icon').forEach(function (icon) { trackImageLoading(icon); });
       
       // Start the initial animation via JavaScript
       setTimeout(() => {
