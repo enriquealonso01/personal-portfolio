@@ -23,9 +23,9 @@
         "tech_used": ["python", "javascript", "html", "css"],
         "description": "Social Control Hub is a personal project where I built a cross-platform social media analytics platform end to end. It tracks the performance of profiles across <a href=\"https://www.youtube.com/\" target=\"_blank\">YouTube</a>, <a href=\"https://www.facebook.com/\" target=\"_blank\">Facebook</a>, <a href=\"https://www.instagram.com/\" target=\"_blank\">Instagram</a>, and <a href=\"https://www.tiktok.com/\" target=\"_blank\">TikTok</a>, pulling each platform's numbers into a single dashboard that reports reach, engagement, and growth over a rolling 30-day window.<br><br>I own the entire pipeline and designed the whole thing myself: the data ingestion from each platform, the data model, and the dashboard. It consolidates views, followers, likes, and comments from every channel into unified totals, with per-profile and per-platform breakdowns, daily time-series charts, and one-click TSV and Markdown exports.",
         "impact": {
-            "impact_1": "Summarizes a combined reach of 7.1M+ views and 10.1K+ followers across YouTube, Facebook, Instagram, and TikTok",
-            "impact_2": "Aggregates 58.6K+ likes and 139 comments from every tracked profile into unified cross-platform totals",
-            "impact_3": "Refreshes daily, with per-profile and per-platform breakdowns over a rolling 30-day window"
+            "impact_1": "Summarizes a combined reach of 2.4M views and 16.5K followers across YouTube, Facebook, Instagram, and TikTok in any rolling 30-day window",
+            "impact_2": "Aggregates 13.3K likes and 184 comments from every tracked profile into unified cross-platform totals",
+            "impact_3": "Refreshes daily, with per-profile and per-platform breakdowns across 9 tracked channels"
         },
         "pictures_path": {
             "picture_1": "SocialControlHub1.png",
