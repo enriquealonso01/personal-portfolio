@@ -1,5 +1,22 @@
 [
     {
+        "title": "JARVIS: Personal AI Assistant",
+        "year": "2026",
+        "category": "AI",
+        "tech_used": ["python", "llm", "agents", "websockets", "redis", "fastapi", "uvicorn", "javascript", "html", "css"],
+        "description": "JARVIS is an always-on personal AI assistant I built and run on my own private server, reachable 24/7 from web, WhatsApp, Discord, and voice. It orchestrates LLM-powered agents that manage my calendar, email, smart-home routines, web scraping pipelines, cron automations, and even deploy code — with persistent memory across sessions and a full audit trail of every action.<br><br>The stack includes a FastAPI/uvicorn gateway with a live web dashboard (sessions, cron jobs, model usage, skills, and plugin management), multi-provider LLM routing with automatic failover, a browser-automation engine, and speech-to-text plus neural TTS for voice calls. Everything is self-hosted and observable from the Control Center shown in the screenshots. Live demo: <a href=\"https://jarvis.enriquecodes.com\" target=\"_blank\">jarvis.enriquecodes.com</a>.",
+        "impact": {
+            "impact_1": "Runs 20+ scheduled automations (data pipelines, alerts, reports) unattended, 24/7, on a single self-hosted box",
+            "impact_2": "Multi-provider LLM routing with dual-key rotation keeps the assistant online through provider outages",
+            "impact_3": "One Control Center dashboard to manage sessions, cron jobs, models, and skills across every channel"
+        },
+        "pictures_path": {
+            "picture_1": "JarvisControlCenter1.png",
+            "picture_2": "JarvisControlCenter2.png",
+            "picture_3": "JarvisControlCenter3.png"
+        }
+    },
+    {
         "title": "Broker Copilot",
         "year": "2026",
         "category": "AI",
