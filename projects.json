@@ -1,190 +1,275 @@
 [
-    {
-        "title": "JARVIS: Personal AI Assistant",
-        "year": "2026",
-        "category": "AI",
-        "tech_used": ["python", "llm", "agents", "websockets", "redis", "fastapi", "uvicorn", "javascript", "html", "css"],
-        "description": "JARVIS is an always-on personal AI assistant I built and run on my own private server, reachable 24/7 from web, WhatsApp, Discord, and voice. It orchestrates LLM-powered agents that manage my calendar, email, smart-home routines, web scraping pipelines, cron automations, and even deploy code — with persistent memory across sessions and a full audit trail of every action.<br><br>The stack includes a FastAPI/uvicorn gateway with a live web dashboard (sessions, cron jobs, model usage, skills, and plugin management), multi-provider LLM routing with automatic failover, a browser-automation engine, and speech-to-text plus neural TTS for voice calls. Everything is self-hosted and observable from the Control Center shown in the screenshots. Live demo: <a href=\"https://jarvis.enriquecodes.com\" target=\"_blank\">jarvis.enriquecodes.com</a>.",
-        "impact": {
-            "impact_1": "Runs 20+ scheduled automations (data pipelines, alerts, reports) unattended, 24/7, on a single self-hosted box",
-            "impact_2": "Multi-provider LLM routing with dual-key rotation keeps the assistant online through provider outages",
-            "impact_3": "One Control Center dashboard to manage sessions, cron jobs, models, and skills across every channel"
-        },
-        "pictures_path": {
-            "picture_1": "JarvisControlCenter1.png",
-            "picture_2": "JarvisControlCenter2.png",
-            "picture_3": "JarvisControlCenter3.png"
-        }
+  {
+    "title": "JARVIS: Personal AI Assistant",
+    "year": "2026",
+    "category": "AI",
+    "tech_used": [
+      "python",
+      "fastapi",
+      "websockets",
+      "redis",
+      "openai",
+      "anthropic",
+      "javascript",
+      "html",
+      "css"
+    ],
+    "description": "JARVIS is an always-on personal AI assistant I built and run on my own private server, reachable 24/7 from web, WhatsApp, Discord, and voice. It orchestrates LLM-powered agents that manage my calendar, email, smart-home routines, web scraping pipelines, cron automations, and even deploy code — with persistent memory across sessions and a full audit trail of every action.<br><br>The stack includes a FastAPI/uvicorn gateway with a live web dashboard (sessions, cron jobs, model usage, skills, and plugin management), multi-provider LLM routing with automatic failover, a browser-automation engine, and speech-to-text plus neural TTS for voice calls. Everything is self-hosted and observable from the Control Center shown in the screenshots. Live demo: <a href=\"https://jarvis.enriquecodes.com\" target=\"_blank\">jarvis.enriquecodes.com</a>.",
+    "impact": {
+      "impact_1": "Runs 20+ scheduled automations (data pipelines, alerts, reports) unattended, 24/7, on a single self-hosted box",
+      "impact_2": "Multi-provider LLM routing with dual-key rotation keeps the assistant online through provider outages",
+      "impact_3": "One Control Center dashboard to manage sessions, cron jobs, models, and skills across every channel"
     },
-    {
-        "title": "Broker Copilot",
-        "year": "2026",
-        "category": "AI",
-        "tech_used": ["langflow", "anthropic", "openai", "python", "django", "mysql", "awselastic", "awsec2", "javascript", "html", "css"],
-        "description": "As part of my work with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>, I am building Broker Copilot, a ChatGPT-style assistant that lets ticket brokers chat with their own point-of-sale data. It connects to a customer's Skybox or Lysted POS account and answers questions about their inventory, sales, and pricing in plain language.<br><br>The agentic workflow is built with <a href=\"https://www.langflow.org/\" target=\"_blank\">Langflow</a> on top of <a href=\"https://docs.claude.com/en/api/agent-sdk/overview\" target=\"_blank\">Anthropic's Claude Agent SDK</a>, self-deployed on a private EC2 instance. My work spans the full product: designing the Langflow flow and tiered agent prompts (lite, pro, elite), building the Django chat application, integrating the POS data, and deploying it via AWS Elastic Beanstalk. Broker Copilot is set to launch publicly in 2026.",
-        "impact": {
-            "impact_1": "Gives brokers natural-language access to their entire POS history, with no exports or manual queries needed",
-            "impact_2": "Tiered prompt design (lite, pro, elite) serves every subscription level from a single Langflow deployment"
-        },
-        "pictures_path": {
-            "picture_1": "BrokerCopilot1.png",
-            "picture_2": "BrokerCopilot2.png",
-            "picture_3": "BrokerCopilot3.png",
-            "picture_4": "BrokerCopilot4.png"
-        }
-    },
-    {
-        "title": "Social Control Hub",
-        "year": "2026",
-        "category": "App Development",
-        "tech_used": ["python", "javascript", "html", "css"],
-        "description": "Social Control Hub is a personal project where I built a cross-platform social media analytics platform end to end. It tracks the performance of profiles across <a href=\"https://www.youtube.com/\" target=\"_blank\">YouTube</a>, <a href=\"https://www.facebook.com/\" target=\"_blank\">Facebook</a>, <a href=\"https://www.instagram.com/\" target=\"_blank\">Instagram</a>, and <a href=\"https://www.tiktok.com/\" target=\"_blank\">TikTok</a>, pulling each platform's numbers into a single dashboard that reports reach, engagement, and growth over a rolling 30-day window.<br><br>I own the entire pipeline and designed the whole thing myself: the data ingestion from each platform, the data model, and the dashboard. It consolidates views, followers, likes, and comments from every channel into unified totals, with per-profile and per-platform breakdowns, daily time-series charts, and one-click TSV and Markdown exports.",
-        "impact": {
-            "impact_1": "Summarizes a combined reach of 2.4M views and 16.5K followers across YouTube, Facebook, Instagram, and TikTok in any rolling 30-day window",
-            "impact_2": "Aggregates 13.3K likes and 184 comments from every tracked profile into unified cross-platform totals",
-            "impact_3": "Refreshes daily, with per-profile and per-platform breakdowns across 9 tracked channels"
-        },
-        "pictures_path": {
-            "picture_1": "SocialControlHub1.png",
-            "picture_2": "SocialControlHub2.png",
-            "picture_3": "SocialControlHub3.png"
-        }
-    },
-    {
-        "title": "RAG AI Assistant",
-        "year": "2025",
-        "category": "AI",
-        "tech_used": ["redis", "python", "langflow", "openai", "awsec2", "slack", "django"],
-        "description": "As part of my work with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>, I developed an AI Assistant that uses Retrieval Augmented Generation (RAG) to reply to user's messages using 7 years of Slack messages, 100+ training videos and demo calls, and other internal resources. These total to 250K+ vector objects.<br><br>My work was from beginning to end, which includes data treatment, embedding, <a href=\"https://www.langflow.org/\" target=\"_blank\">Langflow</a> process design, designing the agent prompts, creating and managing the Redis instance, deploying Langflow to private EC2 instance, creating and setting up the Slack Bot, and testing the tool.",
-        "impact": {
-            "impact_1": "Unlocked access to 7+ years of institutional knowledge for all team members",
-            "impact_2": "Handles 500+ user queries monthly, reducing support burden on senior team members"
-        },
-
-        "pictures_path": {
-            "picture_1": "AskAI1.png",
-            "picture_2": "AskAI2.png",
-            "picture_3": "AskAI3.png",
-            "picture_4": "AskAI4.png"
-        }
-    },
-    {
-        "title": "Ticketmaster Heat Map",
-        "year": "2024",
-        "category": "App Development",
-        "tech_used": ["javascript", "css", "chromeextension", "html", "github"],
-        "description": "My first project with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>. I reached out to them after a couple of months of being their customer, and asked if they wanted to have a Ticketmaster Heat Map developed for them, and they said yes. After 2 months of work, I delivered the feature and integrated it into their Chrome Extension. <br><br>The main challenge was understanding the data from <a href=\"https://www.ticketmaster.com/\" target=\"_blank\">Ticketmaster</a>, and developing scrapping mechanisms to get the price, section, row, and number of all seats in any venue.",
-        "impact": {
-            "impact_1": "Ticketflipping's Chrome Extension now has a Heat Map feature, which is used by 1000+ users monthly",
-            "impact_2": "Reduces businesses research time by at least 10%"
-        },
-        "pictures_path": {
-            "picture_1": "HeatMap1.png",
-            "picture_2": "HeatMap2.png",
-            "picture_3": "HeatMap3.png",
-            "picture_4": "HeatMap4.png"
-        }
-    },    
-    {
-        "title": "Kimani: Virtual Community Platform - Post A Trip Feature",
-        "year": "2025",
-        "category": "App Development",
-        "tech_used": ["rust", "mongodb", "tailwindcss", "docker", "awsec2", "github", "revoltchat", "typescript"],
-        "description": "I was hired by <a href=\"https://kimanilife.com\" target=\"_blank\">Kimani</a> to develop a new feature for their virtual community platform. The feature allows users to post a trip to share where they are going with the rest of the community. <br><br>The main challenge was to understand the data model and the business logic of the platform, and to develop a feature that is easy to use and maintain. Also, if you know Rust, not too many words are needed to explain the challenge.",
-        "impact": {
-            "impact_1": "Added one of the first interactive features to the platform"
-        },
-        "pictures_path": {
-            "picture_1": "kimani1.png",
-            "picture_2": "kimani2.png",
-            "picture_3": "kimani3.png",
-            "picture_4": "kimani4.jpg",
-            "picture_5": "kimani5.jpg"
-        }
-    },
-    {
-        "title": "Implementation of Server Side Caching (Redis)",
-        "year": "2024",
-        "category": "App Development",
-        "tech_used": ["redis", "python", "django", "html", "css", "javascript"],
-        "description": "High loading times were a major issue among <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>'s customers, aand the issue continued to increase thanks to the hike in entertainment events during the last few years. Initially the site was created to use client-side caching for tables with 20K+ rows, but once the event count passed 40K, many customers would wait from 10 to 40 seconds for one of the pages to load. <br><br>I was tasked with implementing any solution to the issue. After some research, I found <a href=\"https://redis.io/\" target=\"_blank\">Redis</a> and implemented it in the backend of Ticketflipping's Django app. My work was from beginning to end, which includes setting up the Redis instance, creating the cache logic, coding the backend operations, and designing and constructing the cached tables and advanced filtering. Since then, I have brought 34 of Ticketflipping's views to use Redis caching.",
-        "impact": {
-            "impact_1": "Reduced loading time for all pages by 95%",
-            "impact_2": "Reduced server load by 50%",
-            "impact_3": "Increased customer satisfaction by 20%"
-        },
-        "pictures_path": {
-            "picture_1": "RedisCaching1.png",
-            "picture_2": "RedisCaching2.png",
-            "picture_3": "RedisCaching3.png"
-        }
-    }, 
-    {
-        "title": "Flare: Event Data Platform",
-        "year": "2024-2025",
-        "category": "App Development",
-        "tech_used": ["python", "django", "html", "css", "javascript", "mysql", "awselastic", "bitbucket", "selenium"],
-        "description": "Although this does not constitute to a specific project, I have dedicated over 20% of my time with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a> to work on their entertainment event data platform, Flare. The platform is the heart of Ticketflipping's business, and is used by all their customers to manage events, view their data, set up alerts for ticket count and price, and conducting research. Flare counts with many features, some of which are viewing event historical data, tracking event sales, or managing a portfolio of events. Flare tracks around 100K events in the US, and partial covery of the rest of the world. This includes primary markets (<a href=\"https://www.ticketmaster.com/\" target=\"_blank\">Ticketmaster</a>, <a href=\"https://www.axs.com/\" target=\"_blank\">AXS</a>, <a href=\"https://www.tickets.com/\" target=\"_blank\">tickets.com</a>) and secondary markets (<a href=\"https://www.stubhub.com/\" target=\"_blank\">StubHub</a>, <a href=\"https://www.tickpick.com/\" target=\"_blank\">Tickpick</a>, <a href=\"https://www.seatgeek.com/\" target=\"_blank\">Seatgeek</a>, <a href=\"https://www.viviseats.com/\" target=\"_blank\">Viviseats</a>, etc.).<br><br>My work in this platform consists on Debugging Issues, developing features, explanding coverage to other markets (<a href=\"https://tickets.com\" target=\"_blank\">Tickets.com </a>and <a href=\"https://tickpick.com\" target=\"_blank\">Tickpick</a>), and keeping up with user's requests.",
-        "impact": {
-            "impact_1": "Ticketflipping's community received 1-2 major updates per month",
-            "impact_2": "15-30 bugs/month are fixed and deployed within an average of 3 days"
-        },
-        "pictures_path": {
-            "picture_1": "Flare1.png",
-            "picture_2": "Flare2.png",
-            "picture_3": "Flare3.png",
-            "picture_4": "Flare4.png",
-            "picture_5": "Flare5.png",
-            "picture_6": "Flare6.png"
-        }
-    },    
-    {
-        "title": "Large-Scale Adaptive Data Scraping",
-        "year": "2025",
-        "category": "App Development",
-        "tech_used": ["python", "redis", "html", "chromeextension", "mysql", "awsec2", "selenium"],
-        "description": "Developed and maintained large-scale web scraping systems for <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>'s Flare platform. The system adapts to different website structures and handles anti-bot measures while collecting data from multiple ticket marketplaces. <br><br>My work involved creating robust scraping mechanisms that can handle different website layouts, implementing rate limiting and proxy rotation, developing error handling and retry mechanisms, and ensuring data quality and consistency across different sources.",
-        "impact": {
-            "impact_1": "Maintains data collection from 4+ major ticket marketplaces",
-            "impact_2": "Ensures 99%+ uptime for critical data feeds"
-        },
-        "pictures_path": {
-            "picture_1": "FlareScrapping1.png",
-            "picture_2": "Flare4.png"
-        }
-    },    
-    {
-        "title": "New Database Schema for Flare",
-        "year": "2025",
-        "category": "App Development",
-        "tech_used": ["python", "redis", "html", "chromeextension", "mysql", "awsec2", "selenium"],
-        "description": "As part of my work with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>, I was tasked with developing a new database schema for Flare. Ticketflipping was initilly created to serve an specific market, which is why a new schema was needed in order to scale the opertion. The new schema was designed to improve the performance and scalability of the platform, and to make it easier to maintain and extend. <br><br>My work involved designing the new schema, implementing it in the codebase, and testing it to ensure it works as expected. I also worked on the migration of the data from the old schema to the new one, and on the integration of the new schema with the rest of the platform. The main challenge was doing this without creating any downtime in production.",
-        "impact": {
-            "impact_1": "Consolidates all events (primary and secondary), artists, venues, and inventory tracking into a single table",
-            "impact_2": "Opens the door to new features such as global events, and global inventory tracking",
-            "impact_3": "Improves the performance of the platform by 30%"
-        },
-        "pictures_path": {
-            "picture_1": "NewDB1.png"
-        }
-    },    
-    {
-        "title": "Way of Santiago - Operations Research",
-        "year": "2023",
-        "category": "Model Development",
-        "tech_used": ["python", "googlecolab", "pulp"],
-        "description": "As part of my Industrial & Systems Engineering degree, I developed a project that uses Operations Research to find the most optimal stops to take when traveling the way of Santiago. If you are not aware of what the Way of Santiago is, <a href=\"https://www.youtube.com/watch?v=sdADQrawzrw\" target=\"_blank\">here is a summary of it</a><br><br>The project was developed in Google Colab. The main challenge was collecting enough data, and developing the model by hand. After these, I was able to use pulp, a python linear programming library, to solve the problem.<br><br>Feel free to try it out yourself and see the code <a href=\"https://colab.research.google.com/drive/17TuT4Bnby5hpGAk1WJCy5pg_eOC4VETM?usp=sharing\" target=\"_blank\">here</a>.",
-        "impact": {
-            "impact_1": "Optimizes route planning across 6 different paths with ~100 stopping points using linear programming",
-            "impact_2": "Minimizes daily walking distance deviation based on user preferences (10-30km, 4-9 days)",
-            "impact_3": "Generates interactive downloadable maps and route summaries for optimal pilgrimage planning"
-        },
-        "pictures_path": {
-            "picture_1": "Santiago1.png",
-            "picture_2": "Santiago2.png",
-            "picture_3": "Santiago3.png",
-            "picture_4": "Santiago4.png"
-        }
+    "pictures_path": {
+      "picture_1": "JarvisCC1.png",
+      "picture_2": "JarvisCC2.png",
+      "picture_3": "JarvisCC3.png"
     }
-
+  },
+  {
+    "title": "Broker Copilot",
+    "year": "2026",
+    "category": "AI",
+    "tech_used": [
+      "langflow",
+      "anthropic",
+      "openai",
+      "python",
+      "django",
+      "mysql",
+      "awselastic",
+      "awsec2",
+      "javascript",
+      "html",
+      "css"
+    ],
+    "description": "As part of my work with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>, I am building Broker Copilot, a ChatGPT-style assistant that lets ticket brokers chat with their own point-of-sale data. It connects to a customer's Skybox or Lysted POS account and answers questions about their inventory, sales, and pricing in plain language.<br><br>The agentic workflow is built with <a href=\"https://www.langflow.org/\" target=\"_blank\">Langflow</a> on top of <a href=\"https://docs.claude.com/en/api/agent-sdk/overview\" target=\"_blank\">Anthropic's Claude Agent SDK</a>, self-deployed on a private EC2 instance. My work spans the full product: designing the Langflow flow and tiered agent prompts (lite, pro, elite), building the Django chat application, integrating the POS data, and deploying it via AWS Elastic Beanstalk. Broker Copilot is set to launch publicly in 2026.",
+    "impact": {
+      "impact_1": "Gives brokers natural-language access to their entire POS history, with no exports or manual queries needed",
+      "impact_2": "Tiered prompt design (lite, pro, elite) serves every subscription level from a single Langflow deployment"
+    },
+    "pictures_path": {
+      "picture_1": "BrokerCopilot1.png",
+      "picture_2": "BrokerCopilot2.png",
+      "picture_3": "BrokerCopilot3.png",
+      "picture_4": "BrokerCopilot4.png"
+    }
+  },
+  {
+    "title": "Social Control Hub",
+    "year": "2026",
+    "category": "App Development",
+    "tech_used": [
+      "python",
+      "javascript",
+      "html",
+      "css"
+    ],
+    "description": "Social Control Hub is a personal project where I built a cross-platform social media analytics platform end to end. It tracks the performance of profiles across <a href=\"https://www.youtube.com/\" target=\"_blank\">YouTube</a>, <a href=\"https://www.facebook.com/\" target=\"_blank\">Facebook</a>, <a href=\"https://www.instagram.com/\" target=\"_blank\">Instagram</a>, and <a href=\"https://www.tiktok.com/\" target=\"_blank\">TikTok</a>, pulling each platform's numbers into a single dashboard that reports reach, engagement, and growth over a rolling 30-day window.<br><br>I own the entire pipeline and designed the whole thing myself: the data ingestion from each platform, the data model, and the dashboard. It consolidates views, followers, likes, and comments from every channel into unified totals, with per-profile and per-platform breakdowns, daily time-series charts, and one-click TSV and Markdown exports.",
+    "impact": {
+      "impact_1": "Summarizes a combined reach of 2.4M views and 16.5K followers across YouTube, Facebook, Instagram, and TikTok in any rolling 30-day window",
+      "impact_2": "Aggregates 13.3K likes and 184 comments from every tracked profile into unified cross-platform totals",
+      "impact_3": "Refreshes daily, with per-profile and per-platform breakdowns across 9 tracked channels"
+    },
+    "pictures_path": {
+      "picture_1": "SocialControlHub1.png",
+      "picture_2": "SocialControlHub2.png",
+      "picture_3": "SocialControlHub3.png"
+    }
+  },
+  {
+    "title": "RAG AI Assistant",
+    "year": "2025",
+    "category": "AI",
+    "tech_used": [
+      "redis",
+      "python",
+      "langflow",
+      "openai",
+      "awsec2",
+      "slack",
+      "django"
+    ],
+    "description": "As part of my work with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>, I developed an AI Assistant that uses Retrieval Augmented Generation (RAG) to reply to user's messages using 7 years of Slack messages, 100+ training videos and demo calls, and other internal resources. These total to 250K+ vector objects.<br><br>My work was from beginning to end, which includes data treatment, embedding, <a href=\"https://www.langflow.org/\" target=\"_blank\">Langflow</a> process design, designing the agent prompts, creating and managing the Redis instance, deploying Langflow to private EC2 instance, creating and setting up the Slack Bot, and testing the tool.",
+    "impact": {
+      "impact_1": "Unlocked access to 7+ years of institutional knowledge for all team members",
+      "impact_2": "Handles 500+ user queries monthly, reducing support burden on senior team members"
+    },
+    "pictures_path": {
+      "picture_1": "AskAI1.png",
+      "picture_2": "AskAI2.png",
+      "picture_3": "AskAI3.png",
+      "picture_4": "AskAI4.png"
+    }
+  },
+  {
+    "title": "Ticketmaster Heat Map",
+    "year": "2024",
+    "category": "App Development",
+    "tech_used": [
+      "javascript",
+      "css",
+      "chromeextension",
+      "html",
+      "github"
+    ],
+    "description": "My first project with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>. I reached out to them after a couple of months of being their customer, and asked if they wanted to have a Ticketmaster Heat Map developed for them, and they said yes. After 2 months of work, I delivered the feature and integrated it into their Chrome Extension. <br><br>The main challenge was understanding the data from <a href=\"https://www.ticketmaster.com/\" target=\"_blank\">Ticketmaster</a>, and developing scrapping mechanisms to get the price, section, row, and number of all seats in any venue.",
+    "impact": {
+      "impact_1": "Ticketflipping's Chrome Extension now has a Heat Map feature, which is used by 1000+ users monthly",
+      "impact_2": "Reduces businesses research time by at least 10%"
+    },
+    "pictures_path": {
+      "picture_1": "HeatMap1.png",
+      "picture_2": "HeatMap2.png",
+      "picture_3": "HeatMap3.png",
+      "picture_4": "HeatMap4.png"
+    }
+  },
+  {
+    "title": "Kimani: Virtual Community Platform - Post A Trip Feature",
+    "year": "2025",
+    "category": "App Development",
+    "tech_used": [
+      "rust",
+      "mongodb",
+      "tailwindcss",
+      "docker",
+      "awsec2",
+      "github",
+      "revoltchat",
+      "typescript"
+    ],
+    "description": "I was hired by <a href=\"https://kimanilife.com\" target=\"_blank\">Kimani</a> to develop a new feature for their virtual community platform. The feature allows users to post a trip to share where they are going with the rest of the community. <br><br>The main challenge was to understand the data model and the business logic of the platform, and to develop a feature that is easy to use and maintain. Also, if you know Rust, not too many words are needed to explain the challenge.",
+    "impact": {
+      "impact_1": "Added one of the first interactive features to the platform"
+    },
+    "pictures_path": {
+      "picture_1": "kimani1.png",
+      "picture_2": "kimani2.png",
+      "picture_3": "kimani3.png",
+      "picture_4": "kimani4.jpg",
+      "picture_5": "kimani5.jpg"
+    }
+  },
+  {
+    "title": "Implementation of Server Side Caching (Redis)",
+    "year": "2024",
+    "category": "App Development",
+    "tech_used": [
+      "redis",
+      "python",
+      "django",
+      "html",
+      "css",
+      "javascript"
+    ],
+    "description": "High loading times were a major issue among <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>'s customers, aand the issue continued to increase thanks to the hike in entertainment events during the last few years. Initially the site was created to use client-side caching for tables with 20K+ rows, but once the event count passed 40K, many customers would wait from 10 to 40 seconds for one of the pages to load. <br><br>I was tasked with implementing any solution to the issue. After some research, I found <a href=\"https://redis.io/\" target=\"_blank\">Redis</a> and implemented it in the backend of Ticketflipping's Django app. My work was from beginning to end, which includes setting up the Redis instance, creating the cache logic, coding the backend operations, and designing and constructing the cached tables and advanced filtering. Since then, I have brought 34 of Ticketflipping's views to use Redis caching.",
+    "impact": {
+      "impact_1": "Reduced loading time for all pages by 95%",
+      "impact_2": "Reduced server load by 50%",
+      "impact_3": "Increased customer satisfaction by 20%"
+    },
+    "pictures_path": {
+      "picture_1": "RedisCaching1.png",
+      "picture_2": "RedisCaching2.png",
+      "picture_3": "RedisCaching3.png"
+    }
+  },
+  {
+    "title": "Flare: Event Data Platform",
+    "year": "2024-2025",
+    "category": "App Development",
+    "tech_used": [
+      "python",
+      "django",
+      "html",
+      "css",
+      "javascript",
+      "mysql",
+      "awselastic",
+      "bitbucket",
+      "selenium"
+    ],
+    "description": "Although this does not constitute to a specific project, I have dedicated over 20% of my time with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a> to work on their entertainment event data platform, Flare. The platform is the heart of Ticketflipping's business, and is used by all their customers to manage events, view their data, set up alerts for ticket count and price, and conducting research. Flare counts with many features, some of which are viewing event historical data, tracking event sales, or managing a portfolio of events. Flare tracks around 100K events in the US, and partial covery of the rest of the world. This includes primary markets (<a href=\"https://www.ticketmaster.com/\" target=\"_blank\">Ticketmaster</a>, <a href=\"https://www.axs.com/\" target=\"_blank\">AXS</a>, <a href=\"https://www.tickets.com/\" target=\"_blank\">tickets.com</a>) and secondary markets (<a href=\"https://www.stubhub.com/\" target=\"_blank\">StubHub</a>, <a href=\"https://www.tickpick.com/\" target=\"_blank\">Tickpick</a>, <a href=\"https://www.seatgeek.com/\" target=\"_blank\">Seatgeek</a>, <a href=\"https://www.viviseats.com/\" target=\"_blank\">Viviseats</a>, etc.).<br><br>My work in this platform consists on Debugging Issues, developing features, explanding coverage to other markets (<a href=\"https://tickets.com\" target=\"_blank\">Tickets.com </a>and <a href=\"https://tickpick.com\" target=\"_blank\">Tickpick</a>), and keeping up with user's requests.",
+    "impact": {
+      "impact_1": "Ticketflipping's community received 1-2 major updates per month",
+      "impact_2": "15-30 bugs/month are fixed and deployed within an average of 3 days"
+    },
+    "pictures_path": {
+      "picture_1": "Flare1.png",
+      "picture_2": "Flare2.png",
+      "picture_3": "Flare3.png",
+      "picture_4": "Flare4.png",
+      "picture_5": "Flare5.png",
+      "picture_6": "Flare6.png"
+    }
+  },
+  {
+    "title": "Large-Scale Adaptive Data Scraping",
+    "year": "2025",
+    "category": "App Development",
+    "tech_used": [
+      "python",
+      "redis",
+      "html",
+      "chromeextension",
+      "mysql",
+      "awsec2",
+      "selenium"
+    ],
+    "description": "Developed and maintained large-scale web scraping systems for <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>'s Flare platform. The system adapts to different website structures and handles anti-bot measures while collecting data from multiple ticket marketplaces. <br><br>My work involved creating robust scraping mechanisms that can handle different website layouts, implementing rate limiting and proxy rotation, developing error handling and retry mechanisms, and ensuring data quality and consistency across different sources.",
+    "impact": {
+      "impact_1": "Maintains data collection from 4+ major ticket marketplaces",
+      "impact_2": "Ensures 99%+ uptime for critical data feeds"
+    },
+    "pictures_path": {
+      "picture_1": "FlareScrapping1.png",
+      "picture_2": "Flare4.png"
+    }
+  },
+  {
+    "title": "New Database Schema for Flare",
+    "year": "2025",
+    "category": "App Development",
+    "tech_used": [
+      "python",
+      "redis",
+      "html",
+      "chromeextension",
+      "mysql",
+      "awsec2",
+      "selenium"
+    ],
+    "description": "As part of my work with <a href=\"https://ticketflipping.com\" target=\"_blank\">Ticketflipping</a>, I was tasked with developing a new database schema for Flare. Ticketflipping was initilly created to serve an specific market, which is why a new schema was needed in order to scale the opertion. The new schema was designed to improve the performance and scalability of the platform, and to make it easier to maintain and extend. <br><br>My work involved designing the new schema, implementing it in the codebase, and testing it to ensure it works as expected. I also worked on the migration of the data from the old schema to the new one, and on the integration of the new schema with the rest of the platform. The main challenge was doing this without creating any downtime in production.",
+    "impact": {
+      "impact_1": "Consolidates all events (primary and secondary), artists, venues, and inventory tracking into a single table",
+      "impact_2": "Opens the door to new features such as global events, and global inventory tracking",
+      "impact_3": "Improves the performance of the platform by 30%"
+    },
+    "pictures_path": {
+      "picture_1": "NewDB1.png"
+    }
+  },
+  {
+    "title": "Way of Santiago - Operations Research",
+    "year": "2023",
+    "category": "Model Development",
+    "tech_used": [
+      "python",
+      "googlecolab",
+      "pulp"
+    ],
+    "description": "As part of my Industrial & Systems Engineering degree, I developed a project that uses Operations Research to find the most optimal stops to take when traveling the way of Santiago. If you are not aware of what the Way of Santiago is, <a href=\"https://www.youtube.com/watch?v=sdADQrawzrw\" target=\"_blank\">here is a summary of it</a><br><br>The project was developed in Google Colab. The main challenge was collecting enough data, and developing the model by hand. After these, I was able to use pulp, a python linear programming library, to solve the problem.<br><br>Feel free to try it out yourself and see the code <a href=\"https://colab.research.google.com/drive/17TuT4Bnby5hpGAk1WJCy5pg_eOC4VETM?usp=sharing\" target=\"_blank\">here</a>.",
+    "impact": {
+      "impact_1": "Optimizes route planning across 6 different paths with ~100 stopping points using linear programming",
+      "impact_2": "Minimizes daily walking distance deviation based on user preferences (10-30km, 4-9 days)",
+      "impact_3": "Generates interactive downloadable maps and route summaries for optimal pilgrimage planning"
+    },
+    "pictures_path": {
+      "picture_1": "Santiago1.png",
+      "picture_2": "Santiago2.png",
+      "picture_3": "Santiago3.png",
+      "picture_4": "Santiago4.png"
+    }
+  }
 ]
