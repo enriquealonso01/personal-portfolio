@@ -24,7 +24,35 @@
       "picture_1": "JarvisCC1.png",
       "picture_2": "JarvisCC2.png",
       "picture_3": "JarvisCC3.png"
-    }
+    },
+    "github": "https://github.com/enriquealonso01/jarvis-core",
+    "github_note": null
+  },
+  {
+    "title": "Reconciler Pro",
+    "year": "2026",
+    "category": "SaaS",
+    "tech_used": [
+      "react",
+      "typescript",
+      "vite",
+      "supabase",
+      "tailwindcss",
+      "banking"
+    ],
+    "description": "Reconciler Pro is a SaaS platform I designed and built that reconciles point-of-sale (POS) data for event-ticket brokers: it connects to a broker's POS and bank feeds, matches purchases against settlements, and flags discrepancies automatically.<br><br>The frontend is a React + Vite + TypeScript app (shadcn/ui, Tailwind) with a dashboard for reconciliation runs, a rules engine for automatic matching, POS provider integrations, bank syncing, transaction drill-downs, and subscription billing. The backend runs on Supabase (Postgres, auth, row-level security) with edge functions for provider sync jobs.<br><br>I took it from concept to a working product with two pilot brokers: multi-tenant auth, POS credential onboarding with MFA handling, and automated daily reconciliation pipelines.",
+    "impact": {
+      "impact_1": "Full multi-tenant SaaS: auth, organization scoping, and row-level security on Supabase",
+      "impact_2": "Rules engine that auto-matched POS purchases to bank settlements and flagged exceptions",
+      "impact_3": "Integrations architecture for POS providers and bank feeds (ClearConnection) with MFA-aware onboarding"
+    },
+    "pictures_path": {
+      "picture_1": "ReconcilerDashboard.png",
+      "picture_2": "ReconcilerReconciled.png",
+      "picture_3": "ReconcilerTransactions.png",
+      "picture_4": "ReconcilerLanding.png"
+    },
+    "github": "https://github.com/enriquealonso01/reconciler-pro"
   },
   {
     "title": "Broker Copilot",
@@ -53,7 +81,9 @@
       "picture_2": "BrokerCopilot2.png",
       "picture_3": "BrokerCopilot3.png",
       "picture_4": "BrokerCopilot4.png"
-    }
+    },
+    "github": null,
+    "github_note": "Private repository — this was a paid client project, so the code isn't public."
   },
   {
     "title": "Social Control Hub",
@@ -75,7 +105,9 @@
       "picture_1": "SocialControlHub1.png",
       "picture_2": "SocialControlHub2.png",
       "picture_3": "SocialControlHub3.png"
-    }
+    },
+    "github": "https://github.com/enriquealonso01/enrique-clips",
+    "github_note": null
   },
   {
     "title": "RAG AI Assistant",
@@ -100,7 +132,9 @@
       "picture_2": "AskAI2.png",
       "picture_3": "AskAI3.png",
       "picture_4": "AskAI4.png"
-    }
+    },
+    "github": null,
+    "github_note": "Private repository — this was a paid client project, so the code isn't public."
   },
   {
     "title": "Ticketmaster Heat Map",
@@ -123,7 +157,9 @@
       "picture_2": "HeatMap2.png",
       "picture_3": "HeatMap3.png",
       "picture_4": "HeatMap4.png"
-    }
+    },
+    "github": null,
+    "github_note": "Private repository — this was a paid client project, so the code isn't public."
   },
   {
     "title": "Kimani: Virtual Community Platform - Post A Trip Feature",
@@ -149,7 +185,9 @@
       "picture_3": "kimani3.png",
       "picture_4": "kimani4.jpg",
       "picture_5": "kimani5.jpg"
-    }
+    },
+    "github": null,
+    "github_note": "Private repository — this was a paid client project, so the code isn't public."
   },
   {
     "title": "Implementation of Server Side Caching (Redis)",
@@ -173,7 +211,9 @@
       "picture_1": "RedisCaching1.png",
       "picture_2": "RedisCaching2.png",
       "picture_3": "RedisCaching3.png"
-    }
+    },
+    "github": null,
+    "github_note": "Private repository — this was a paid client project, so the code isn't public."
   },
   {
     "title": "Flare: Event Data Platform",
@@ -202,7 +242,9 @@
       "picture_4": "Flare4.png",
       "picture_5": "Flare5.png",
       "picture_6": "Flare6.png"
-    }
+    },
+    "github": null,
+    "github_note": "Private repository — this was a paid client project, so the code isn't public."
   },
   {
     "title": "Large-Scale Adaptive Data Scraping",
@@ -225,7 +267,9 @@
     "pictures_path": {
       "picture_1": "FlareScrapping1.png",
       "picture_2": "Flare4.png"
-    }
+    },
+    "github": null,
+    "github_note": "Private repository — this was a paid client project, so the code isn't public."
   },
   {
     "title": "New Database Schema for Flare",
@@ -248,7 +292,9 @@
     },
     "pictures_path": {
       "picture_1": "NewDB1.png"
-    }
+    },
+    "github": null,
+    "github_note": "Private repository — this was a paid client project, so the code isn't public."
   },
   {
     "title": "Way of Santiago - Operations Research",
@@ -270,6 +316,8 @@
       "picture_2": "Santiago2.png",
       "picture_3": "Santiago3.png",
       "picture_4": "Santiago4.png"
-    }
+    },
+    "github": "https://github.com/enriquealonso01/way-of-santiago",
+    "github_note": null
   }
 ]

@@ -203,7 +203,9 @@ async function loadProjects() {
         description: project.description,
         technologies: project.tech_used,
         impact: Object.values(project.impact).filter(impact => impact !== "..."),
-        gallery: Object.values(project.pictures_path).map(pic => `./assets/project_images/${pic}`)
+        gallery: Object.values(project.pictures_path).map(pic => `./assets/project_images/${pic}`),
+        github: project.github || null,
+        github_note: project.github_note || null
       };
     });
     
@@ -405,6 +407,22 @@ function showProjectDetail(projectId) {
   document.getElementById('project-detail-title').textContent = project.title;
   document.getElementById('project-year').textContent = project.year;
   document.getElementById('project-description-text').innerHTML = project.description;
+
+  // GitHub link or private-repo note
+  const ghLink = document.getElementById('project-github-link');
+  const ghNote = document.getElementById('project-github-note');
+  if (project.github) {
+    ghLink.href = project.github;
+    ghLink.style.display = 'inline';
+    ghNote.style.display = 'none';
+  } else if (project.github_note) {
+    ghLink.style.display = 'none';
+    ghNote.style.display = 'inline';
+    ghNote.textContent = project.github_note;
+  } else {
+    ghLink.style.display = 'none';
+    ghNote.style.display = 'none';
+  }
 
   // Update tech icons bar
   updateProjectDetailTechBar(project.technologies);

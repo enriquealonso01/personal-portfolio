@@ -2524,3 +2524,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   background-repeat: no-repeat;
   animation: loader-shimmer 1.25s linear infinite;
 }
+.project-github-link { color: hsl(0, 0%, 84%); transition: 0.25s ease; }
+.project-github-link:hover { color: var(--vegas-gold, #d9a648); transform: scale(1.1); }
+
+.project-github-link svg { color: hsl(0, 0%, 84%) !important; }
+a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; }
