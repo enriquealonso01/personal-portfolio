@@ -2567,15 +2567,15 @@ a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; 
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(7, 7px);
-  gap: 2px;
   width: max-content;
   max-width: 100%;
   margin-bottom: 10px;
 }
 
 #gh-sidebar-calendar .gh-cell {
-  width: 7px;
-  height: 7px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
   border-radius: 1.5px;
   background: #0d1117;
   box-shadow: inset 0 0 0 1px rgba(240, 246, 252, 0.08);

@@ -772,6 +772,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // ----- Mini calendar (sidebar, under social icons) -----
         if (mini) {
+          // Size cells to fit ALL weeks inside the sidebar (never clip recent weeks)
+          const GAPM = 1;
+          const avail = mini.clientWidth || 200;
+          let CM = Math.floor((avail - GAPM * (weeks.length - 1)) / weeks.length);
+          CM = Math.max(3, Math.min(7, CM));
+          mini.style.gridTemplateRows = `repeat(7, ${CM}px)`;
+          mini.style.gap = GAPM + 'px';
           weeks.forEach(w => {
             w.forEach(d => {
               const c = document.createElement('div');
