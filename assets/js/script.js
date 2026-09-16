@@ -666,8 +666,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================================
 (function renderGitHubCalendar() {
   const USER = 'enriquealonso01';
-  const YEAR = new Date().getFullYear();
-  const API = `https://github-contributions-api.jogruber.de/v4/${USER}?y=${YEAR}`;
+  const API = `https://github-contributions-api.jogruber.de/v4/${USER}?y=last`;
 
   function buildWeeks(days) {
     const weeks = [];
@@ -742,13 +741,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // ----- Big calendar (About section) -----
         if (box && loading) {
-          const COLORS = ['#0d1117', '#0e4429', '#006d32', '#26a641', '#39d353'];
+          // Empty slots use a LIGHTER dark shade + a visible outline so they
+          // clearly read as squares against the card background.
+          const COLORS = ['#1b2129', '#0e4429', '#006d32', '#26a641', '#39d353'];
+          const OUTLINE = 'rgba(240,246,252,0.14)';
           const LABEL_W = 26, GAP = 3;
-          // Fit all weeks inside the container: shrink cells if needed (never below 7px),
+          // Fit all weeks inside the container: size cells to the space available,
           // so the graph always reaches today instead of clipping the last weeks.
-          const availW = box.clientWidth - LABEL_W;
+          const availW = (box.clientWidth || 600) - LABEL_W;
           let CELL = Math.floor((availW - GAP * (weeks.length - 1)) / weeks.length);
-          CELL = Math.max(7, Math.min(11, CELL));
+          CELL = Math.max(8, CELL);   // no upper cap — use the space, bigger looks better
           const grid = document.createElement('div');
           grid.style.cssText = `display:grid; grid-auto-flow:column; grid-template-rows:repeat(7, ${CELL}px); gap:${GAP}px; padding-left:${LABEL_W}px; width:max-content; max-width:100%;`;
 
@@ -756,7 +758,7 @@ document.addEventListener('DOMContentLoaded', function() {
             w.forEach(d => {
               const c = document.createElement('div');
               const date = new Date(d.date + 'T00:00:00');
-              c.style.cssText = `width:${CELL}px; height:${CELL}px; border-radius:2px; background:${COLORS[d.level]}; outline:1px solid rgba(240,246,252,0.06); outline-offset:-1px;`;
+              c.style.cssText = `width:${CELL}px; height:${CELL}px; border-radius:2px; background:${COLORS[d.level]}; outline:1px solid ${OUTLINE}; outline-offset:-1px;`;
               c.setAttribute('data-gh-tip', `${d.count} contribution${d.count === 1 ? '' : 's'} · ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`);
               grid.appendChild(c);
             });
@@ -766,7 +768,7 @@ document.addEventListener('DOMContentLoaded', function() {
           box.appendChild(grid);
 
           if (totalEl) {
-            totalEl.textContent = `${total.toLocaleString('en-US')} contributions · Jan 1 – ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, ${YEAR} · current streak: ${streak} day${streak === 1 ? '' : 's'}`;
+            totalEl.textContent = `${total.toLocaleString('en-US')} contributions in the last 365 days · current streak: ${streak} day${streak === 1 ? '' : 's'}`;
           }
         }
 
@@ -776,7 +778,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const GAPM = 1;
           const avail = mini.clientWidth || 200;
           let CM = Math.floor((avail - GAPM * (weeks.length - 1)) / weeks.length);
-          CM = Math.max(3, Math.min(7, CM));
+          CM = Math.max(3, CM);
           mini.style.gridTemplateRows = `repeat(7, ${CM}px)`;
           mini.style.gap = GAPM + 'px';
           weeks.forEach(w => {
@@ -790,7 +792,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
           });
           if (miniTotal) {
-            miniTotal.textContent = `${total.toLocaleString('en-US')} contributions · ${YEAR} →`;
+            miniTotal.textContent = `${total.toLocaleString('en-US')} in the last 365 days →`;
           }
         }
       })

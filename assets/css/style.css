@@ -2577,8 +2577,8 @@ a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; 
   height: 100%;
   aspect-ratio: 1;
   border-radius: 1.5px;
-  background: #0d1117;
-  box-shadow: inset 0 0 0 1px rgba(240, 246, 252, 0.08);
+  background: #1b2129;
+  box-shadow: inset 0 0 0 1px rgba(240, 246, 252, 0.14);
   cursor: default;
   position: relative;
 }
