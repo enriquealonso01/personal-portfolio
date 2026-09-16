@@ -414,7 +414,13 @@ function showProjectDetail(projectId) {
   if (project.github) {
     ghLink.href = project.github;
     ghLink.style.display = 'inline';
-    ghNote.style.display = 'none';
+    // A repo can exist yet 404 for visitors (private). Show the note beside the link.
+    if (project.github_note) {
+      ghNote.textContent = project.github_note;
+      ghNote.style.display = 'inline';
+    } else {
+      ghNote.style.display = 'none';
+    }
   } else if (project.github_note) {
     ghLink.style.display = 'none';
     ghNote.style.display = 'inline';
