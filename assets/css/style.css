@@ -2540,12 +2540,27 @@ a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; 
 }
 
 .gh-mini-title {
-  color: var(--light-gray);
+  color: var(--white-1, #fff);
   font-size: var(--fs-6);
-  font-weight: var(--fw-500);
+  font-weight: var(--fw-600);
+  letter-spacing: 0.3px;
+  margin-bottom: 2px;
+}
+
+.gh-mini-sub {
+  color: var(--light-gray);
+  font-size: 10px;
+  font-weight: var(--fw-400, 300);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   margin-bottom: 10px;
+}
+
+.gh-subtitle {
+  color: var(--light-gray);
+  font-size: var(--fs-6, 13px);
+  font-weight: var(--fw-300, 300);
+  margin: 4px 0 12px 0;
 }
 
 #gh-sidebar-calendar {
@@ -2583,19 +2598,22 @@ a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; 
 .gh-mini-total:hover { color: var(--orange-yellow-crayola); }
 
 /* Tooltip for sidebar cells */
-#gh-sidebar-calendar .gh-cell:hover::after {
+#gh-sidebar-calendar .gh-cell:hover::after,
+#github-calendar div:hover::after {
   content: attr(data-tooltip);
-  position: absolute;
-  bottom: calc(100% + 6px);
+  position: fixed;
   left: 50%;
+  top: 12px;
   transform: translateX(-50%);
-  background: var(--eerie-black-2, #1a1a1a);
+  background: rgba(20, 20, 20, 0.97);
   color: var(--white-1, #fff);
-  font-size: 10px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: 8px;
   border: 1px solid var(--jet, #383838);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
-  z-index: 50;
+  z-index: 9999;
   pointer-events: none;
 }

@@ -666,7 +666,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================================
 (function renderGitHubCalendar() {
   const USER = 'enriquealonso01';
-  const API = `https://github-contributions-api.jogruber.de/v4/${USER}?y=last`;
+  const YEAR = new Date().getFullYear();
+  const API = `https://github-contributions-api.jogruber.de/v4/${USER}?y=${YEAR}`;
 
   function buildWeeks(days) {
     const weeks = [];
@@ -704,7 +705,8 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(API)
       .then(r => r.json())
       .then(data => {
-        const days = data.contributions || [];
+        const today = new Date().toISOString().slice(0, 10);
+        const days = (data.contributions || []).filter(d => d.date <= today);
         if (!days.length) throw new Error('no data');
         const weeks = buildWeeks(days);
         const { total, streak } = stats(days);
@@ -721,7 +723,7 @@ document.addEventListener('DOMContentLoaded', function() {
               const c = document.createElement('div');
               const date = new Date(d.date + 'T00:00:00');
               c.style.cssText = `width:${CELL}px; height:${CELL}px; border-radius:2px; background:${COLORS[d.level]};`;
-              c.title = `${d.count} contribution${d.count === 1 ? '' : 's'} on ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+              c.setAttribute('data-tooltip', `${d.count} contribution${d.count === 1 ? '' : 's'} · ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`);
               grid.appendChild(c);
             });
           });
@@ -730,7 +732,7 @@ document.addEventListener('DOMContentLoaded', function() {
           box.appendChild(grid);
 
           if (totalEl) {
-            totalEl.textContent = `${total.toLocaleString('en-US')} contributions in the last year · longest current streak: ${streak} day${streak === 1 ? '' : 's'} · view profile → github.com/${USER}`;
+            totalEl.textContent = `${total.toLocaleString('en-US')} contributions · Jan 1 – ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, ${YEAR} · current streak: ${streak} day${streak === 1 ? '' : 's'}`;
           }
         }
 
@@ -747,7 +749,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
           });
           if (miniTotal) {
-            miniTotal.textContent = `${total.toLocaleString('en-US')} in the last year →`;
+            miniTotal.textContent = `${total.toLocaleString('en-US')} contributions · ${YEAR} →`;
           }
         }
       })
