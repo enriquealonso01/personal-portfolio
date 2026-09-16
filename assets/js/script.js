@@ -748,7 +748,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const LABEL_W = 26, GAP = 3;
           // Fit all weeks inside the container: size cells to the space available,
           // so the graph always reaches today instead of clipping the last weeks.
-          const availW = (box.clientWidth || 600) - LABEL_W;
+          // (If the About page is hidden, clientWidth is 0 — fall back to 620px.)
+          const availW = ((box.clientWidth > 0 ? box.clientWidth : 620) - LABEL_W);
           let CELL = Math.floor((availW - GAP * (weeks.length - 1)) / weeks.length);
           CELL = Math.max(8, CELL);   // no upper cap — use the space, bigger looks better
           const grid = document.createElement('div');
