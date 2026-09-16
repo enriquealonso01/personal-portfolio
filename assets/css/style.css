@@ -2570,7 +2570,6 @@ a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; 
   gap: 2px;
   width: max-content;
   max-width: 100%;
-  overflow: hidden;
   margin-bottom: 10px;
 }
 
@@ -2578,7 +2577,8 @@ a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; 
   width: 7px;
   height: 7px;
   border-radius: 1.5px;
-  background: #161b22;
+  background: #0d1117;
+  box-shadow: inset 0 0 0 1px rgba(240, 246, 252, 0.08);
   cursor: default;
   position: relative;
 }
@@ -2597,23 +2597,4 @@ a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; 
 
 .gh-mini-total:hover { color: var(--orange-yellow-crayola); }
 
-/* Tooltip for sidebar cells */
-#gh-sidebar-calendar .gh-cell:hover::after,
-#github-calendar div:hover::after {
-  content: attr(data-tooltip);
-  position: fixed;
-  left: 50%;
-  top: 12px;
-  transform: translateX(-50%);
-  background: rgba(20, 20, 20, 0.97);
-  color: var(--white-1, #fff);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 7px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--jet, #383838);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  white-space: nowrap;
-  z-index: 9999;
-  pointer-events: none;
-}
+/* Tooltip is rendered by JS as #gh-tooltip (follows cursor, fixed positioning). */

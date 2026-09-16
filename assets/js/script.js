@@ -694,6 +694,34 @@ document.addEventListener('DOMContentLoaded', function() {
     return { total, streak };
   }
 
+  // Shared floating tooltip: follows the cursor, always above everything,
+  // never clipped (clamped inside the viewport).
+  function setupTooltip() {
+    const tip = document.createElement('div');
+    tip.id = 'gh-tooltip';
+    tip.style.cssText = 'position:fixed; display:none; pointer-events:none; background:rgba(15,17,21,0.97); color:#e6edf3; font-size:12px; font-weight:500; font-family:inherit; padding:6px 10px; border-radius:8px; border:1px solid #30363d; box-shadow:0 8px 24px rgba(0,0,0,0.55); white-space:nowrap; z-index:2147483647;';
+    document.body.appendChild(tip);
+
+    function move(e, text) {
+      tip.textContent = text;
+      tip.style.display = 'block';
+      const r = tip.getBoundingClientRect();
+      let x = e.clientX - r.width / 2;
+      let y = e.clientY - r.height - 10;           // above the cursor
+      if (y < 4) y = e.clientY + 14;               // flip below if no room
+      x = Math.max(4, Math.min(x, window.innerWidth - r.width - 4));
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    }
+    function hide() { tip.style.display = 'none'; }
+
+    document.addEventListener('mousemove', e => {
+      const cell = e.target.closest('[data-gh-tip]');
+      if (cell) move(e, cell.getAttribute('data-gh-tip'));
+      else hide();
+    }, { passive: true });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     const box = document.getElementById('github-calendar');
     const loading = document.getElementById('gh-calendar-loading');
@@ -701,6 +729,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mini = document.getElementById('gh-sidebar-calendar');
     const miniTotal = document.getElementById('gh-sidebar-total');
     if (!box && !mini) return;
+    setupTooltip();
 
     fetch(API)
       .then(r => r.json())
@@ -713,17 +742,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // ----- Big calendar (About section) -----
         if (box && loading) {
-          const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
-          const CELL = 11, GAP = 3, LABEL_W = 26;
+          const COLORS = ['#0d1117', '#0e4429', '#006d32', '#26a641', '#39d353'];
+          const LABEL_W = 26, GAP = 3;
+          // Fit all weeks inside the container: shrink cells if needed (never below 7px),
+          // so the graph always reaches today instead of clipping the last weeks.
+          const availW = box.clientWidth - LABEL_W;
+          let CELL = Math.floor((availW - GAP * (weeks.length - 1)) / weeks.length);
+          CELL = Math.max(7, Math.min(11, CELL));
           const grid = document.createElement('div');
-          grid.style.cssText = `display:grid; grid-auto-flow:column; grid-template-rows:repeat(7, ${CELL}px); gap:${GAP}px; padding-left:${LABEL_W}px; width:max-content;`;
+          grid.style.cssText = `display:grid; grid-auto-flow:column; grid-template-rows:repeat(7, ${CELL}px); gap:${GAP}px; padding-left:${LABEL_W}px; width:max-content; max-width:100%;`;
 
           weeks.forEach(w => {
             w.forEach(d => {
               const c = document.createElement('div');
               const date = new Date(d.date + 'T00:00:00');
-              c.style.cssText = `width:${CELL}px; height:${CELL}px; border-radius:2px; background:${COLORS[d.level]};`;
-              c.setAttribute('data-tooltip', `${d.count} contribution${d.count === 1 ? '' : 's'} · ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`);
+              c.style.cssText = `width:${CELL}px; height:${CELL}px; border-radius:2px; background:${COLORS[d.level]}; outline:1px solid rgba(240,246,252,0.06); outline-offset:-1px;`;
+              c.setAttribute('data-gh-tip', `${d.count} contribution${d.count === 1 ? '' : 's'} · ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`);
               grid.appendChild(c);
             });
           });
@@ -744,7 +778,7 @@ document.addEventListener('DOMContentLoaded', function() {
               c.className = 'gh-cell';
               c.setAttribute('data-level', d.level);
               const date = new Date(d.date + 'T00:00:00');
-              c.setAttribute('data-tooltip', `${d.count} contribution${d.count === 1 ? '' : 's'} · ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`);
+              c.setAttribute('data-gh-tip', `${d.count} contribution${d.count === 1 ? '' : 's'} · ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`);
               mini.appendChild(c);
             });
           });
