@@ -40,11 +40,11 @@
       "tailwindcss",
       "banking"
     ],
-    "description": "Reconciler Pro is a SaaS platform I designed and built that reconciles point-of-sale (POS) data for event-ticket brokers: it connects to a broker's POS and bank feeds, matches purchases against settlements, and flags discrepancies automatically.<br><br>The frontend is a React + Vite + TypeScript app (shadcn/ui, Tailwind) with a dashboard for reconciliation runs, a rules engine for automatic matching, POS provider integrations, bank syncing, transaction drill-downs, and subscription billing. The backend runs on Supabase (Postgres, auth, row-level security) with edge functions for provider sync jobs.<br><br>I took it from concept to a working product with two pilot brokers: multi-tenant auth, POS credential onboarding with MFA handling, and automated daily reconciliation pipelines.",
+    "description": "Reconciler Pro is an AI-powered SaaS platform I designed and built that reconciles point-of-sale (POS) data for event-ticket brokers: it connects to a broker's POS and bank feeds, matches purchases against settlements, and flags discrepancies automatically.<br><br>At its core is a matching engine I designed: a rules-based system combined with <b>machine-learning models and custom matching algorithms</b> that automatically match purchases with inventory and settlements — scoring candidate matches, tolerating real-world noise (name variations, timing gaps, fees), and escalating only genuine exceptions for human review.<br><br>The frontend is a React + Vite + TypeScript app (shadcn/ui, Tailwind) with a dashboard for reconciliation runs, the matching rules engine, POS provider integrations, bank syncing, transaction drill-downs, and subscription billing. The backend runs on Supabase (Postgres, auth, row-level security) with edge functions for provider sync jobs.<br><br>I took it from concept to a working product with two pilot brokers: multi-tenant auth, POS credential onboarding with MFA handling, and automated daily reconciliation pipelines.",
     "impact": {
-      "impact_1": "Full multi-tenant SaaS: auth, organization scoping, and row-level security on Supabase",
-      "impact_2": "Rules engine that auto-matched POS purchases to bank settlements and flagged exceptions",
-      "impact_3": "Integrations architecture for POS providers and bank feeds (ClearConnection) with MFA-aware onboarding"
+     "impact_1": "Designed custom matching algorithms + ML models that auto-match POS purchases to inventory and bank settlements, flagging only true exceptions",
+     "impact_2": "Full multi-tenant SaaS: auth, organization scoping, and row-level security on Supabase",
+     "impact_3": "Integrations architecture for POS providers and bank feeds (ClearConnection) with MFA-aware onboarding"
     },
     "pictures_path": {
       "picture_1": "ReconcilerDashboard.png",
@@ -89,18 +89,20 @@
   {
     "title": "Social Control Hub",
     "year": "2026",
-    "category": "App Development",
+    "category": "AI / App Development",
     "tech_used": [
-      "python",
-      "javascript",
-      "html",
-      "css"
+     "python",
+     "javascript",
+     "html",
+     "css",
+     "ai-video-generation",
+     "llm"
     ],
-    "description": "Social Control Hub is a personal project where I built a cross-platform social media analytics platform end to end. It tracks the performance of profiles across <a href=\"https://www.youtube.com/\" target=\"_blank\">YouTube</a>, <a href=\"https://www.facebook.com/\" target=\"_blank\">Facebook</a>, <a href=\"https://www.instagram.com/\" target=\"_blank\">Instagram</a>, and <a href=\"https://www.tiktok.com/\" target=\"_blank\">TikTok</a>, pulling each platform's numbers into a single dashboard that reports reach, engagement, and growth over a rolling 30-day window.<br><br>I own the entire pipeline and designed the whole thing myself: the data ingestion from each platform, the data model, and the dashboard. It consolidates views, followers, likes, and comments from every channel into unified totals, with per-profile and per-platform breakdowns, daily time-series charts, and one-click TSV and Markdown exports.",
+    "description": "Social Control Hub is an AI-powered content platform I built end to end: it not only tracks and analyzes social media performance across <a href=\"https://www.youtube.com/\" target=\"_blank\">YouTube</a>, <a href=\"https://www.facebook.com/\" target=\"_blank\">Facebook</a>, <a href=\"https://www.instagram.com/\" target=\"_blank\">Instagram</a>, and <a href=\"https://www.tiktok.com/\" target=\"_blank\">TikTok</a> in a single dashboard (reach, engagement, and growth over a rolling 30-day window), it also <b>creates the videos themselves with AI</b>.<br><br>The core is an AI video-creation pipeline I designed and built: it goes from idea to finished video using AI for scripting, voiceover, and visuals, orchestrated through multiple automated stages — each with built-in safeguards, guardrails, and watchdogs so a failure at any stage is caught and recovered automatically. The pipeline was built from day one to run as a product for automatic video content creation: faceless channels get produced, quality-checked, and published with minimal human intervention.<br><br>I own the entire system: the AI generation pipeline, the data ingestion from each platform, the data model, and the dashboard — consolidating views, followers, likes, and comments from every channel into unified totals, with per-profile and per-platform breakdowns, daily time-series charts, and one-click TSV and Markdown exports.",
     "impact": {
-      "impact_1": "Summarizes a combined reach of 2.4M views and 16.5K followers across YouTube, Facebook, Instagram, and TikTok in any rolling 30-day window",
-      "impact_2": "Aggregates 13.3K likes and 184 comments from every tracked profile into unified cross-platform totals",
-      "impact_3": "Refreshes daily, with per-profile and per-platform breakdowns across 9 tracked channels"
+     "impact_1": "AI video pipeline that produces finished videos automatically (AI scripting, voiceover, and visuals) with stage-by-stage safeguards, guardrails, and automatic failure recovery",
+     "impact_2": "Built as a product for automatic AI video content creation, powering faceless channels end to end",
+     "impact_3": "Analytics dashboard tracking 2.4M views and 16.5K followers across 9 channels on YouTube, Facebook, Instagram, and TikTok with daily refresh"
     },
     "pictures_path": {
       "picture_1": "SocialControlHub1.png",
