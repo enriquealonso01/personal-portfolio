@@ -658,3 +658,74 @@ document.addEventListener('DOMContentLoaded', function() {
   populateTechBars();
   addTechBarHoverEffects();
 });
+// ============================================================
+// GitHub contribution calendar (About page)
+// Fetches last 12 months of contribution data from the free
+// jogruber API (CORS-enabled mirror of GitHub's calendar) and
+// renders a GitHub-style contribution graph.
+// ============================================================
+(function renderGitHubCalendar() {
+  const USER = 'enriquealonso01';
+  const API = `https://github-contributions-api.jogruber.de/v4/${USER}?y=last`;
+  const COLORS = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const box = document.getElementById('github-calendar');
+    const loading = document.getElementById('gh-calendar-loading');
+    const totalEl = document.getElementById('gh-calendar-total');
+    if (!box || !loading) return;
+
+    fetch(API)
+      .then(r => r.json())
+      .then(data => {
+        const days = data.contributions || [];
+        if (!days.length) throw new Error('no data');
+
+        // Group days into weeks (columns), weeks start Sunday
+        const weeks = [];
+        let week = [];
+        days.forEach(d => {
+          const dow = new Date(d.date + 'T00:00:00').getDay();
+          if (dow === 0 && week.length) { weeks.push(week); week = []; }
+          week.push(d);
+        });
+        if (week.length) weeks.push(week);
+
+        // Stats
+        let total = 0, best = 0;
+        days.forEach(d => { total += d.count; best = Math.max(best, d.count); });
+        const streak = (() => {
+          let s = 0;
+          for (let i = days.length - 1; i >= 0; i--) {
+            if (days[i].count > 0) s++; else if (s && i !== days.length - 1) break;
+          }
+          return s;
+        })();
+
+        // Build grid
+        const CELL = 11, GAP = 3, LABEL_W = 26;
+        const grid = document.createElement('div');
+        grid.style.cssText = `display:grid; grid-auto-flow:column; grid-template-rows:repeat(7, ${CELL}px); gap:${GAP}px; padding-left:${LABEL_W}px; width:max-content;`;
+
+        weeks.forEach(w => {
+          w.forEach(d => {
+            const c = document.createElement('div');
+            const date = new Date(d.date + 'T00:00:00');
+            c.style.cssText = `width:${CELL}px; height:${CELL}px; border-radius:2px; background:${COLORS[d.level]};`;
+            c.title = `${d.count} contribution${d.count === 1 ? '' : 's'} on ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+            grid.appendChild(c);
+          });
+        });
+
+        loading.remove();
+        box.appendChild(grid);
+
+        if (totalEl) {
+          totalEl.textContent = `${total.toLocaleString()} contributions in the last year · longest current streak: ${streak} day${streak === 1 ? '' : 's'} · view profile → github.com/${USER}`;
+        }
+      })
+      .catch(() => {
+        loading.textContent = 'GitHub activity is unavailable right now — check back soon.';
+      });
+  });
+})();
