@@ -721,7 +721,7 @@ document.addEventListener('DOMContentLoaded', function() {
         box.appendChild(grid);
 
         if (totalEl) {
-          totalEl.textContent = `${total.toLocaleString()} contributions in the last year · longest current streak: ${streak} day${streak === 1 ? '' : 's'} · view profile → github.com/${USER}`;
+          totalEl.textContent = `${total.toLocaleString('en-US')} contributions in the last year · longest current streak: ${streak} day${streak === 1 ? '' : 's'} · view profile → github.com/${USER}`;
         }
       })
       .catch(() => {
