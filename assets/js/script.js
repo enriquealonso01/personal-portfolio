@@ -667,7 +667,7 @@ document.addEventListener('DOMContentLoaded', function() {
 (function renderGitHubCalendar() {
   const USER = 'enriquealonso01';
   const API = `https://github-contributions-api.jogruber.de/v4/${USER}?y=last`;
-  const COLORS = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
+  const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
 
   document.addEventListener('DOMContentLoaded', function () {
     const box = document.getElementById('github-calendar');
