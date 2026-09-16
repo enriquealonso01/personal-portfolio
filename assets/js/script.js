@@ -667,65 +667,92 @@ document.addEventListener('DOMContentLoaded', function() {
 (function renderGitHubCalendar() {
   const USER = 'enriquealonso01';
   const API = `https://github-contributions-api.jogruber.de/v4/${USER}?y=last`;
-  const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+
+  function buildWeeks(days) {
+    const weeks = [];
+    let week = [];
+    days.forEach(d => {
+      const dow = new Date(d.date + 'T00:00:00').getDay();
+      if (dow === 0 && week.length) { weeks.push(week); week = []; }
+      week.push(d);
+    });
+    if (week.length) weeks.push(week);
+    return weeks;
+  }
+
+  function stats(days) {
+    let total = 0;
+    days.forEach(d => { total += d.count; });
+    const streak = (() => {
+      let s = 0;
+      for (let i = days.length - 1; i >= 0; i--) {
+        if (days[i].count > 0) s++; else if (s && i !== days.length - 1) break;
+      }
+      return s;
+    })();
+    return { total, streak };
+  }
 
   document.addEventListener('DOMContentLoaded', function () {
     const box = document.getElementById('github-calendar');
     const loading = document.getElementById('gh-calendar-loading');
     const totalEl = document.getElementById('gh-calendar-total');
-    if (!box || !loading) return;
+    const mini = document.getElementById('gh-sidebar-calendar');
+    const miniTotal = document.getElementById('gh-sidebar-total');
+    if (!box && !mini) return;
 
     fetch(API)
       .then(r => r.json())
       .then(data => {
         const days = data.contributions || [];
         if (!days.length) throw new Error('no data');
+        const weeks = buildWeeks(days);
+        const { total, streak } = stats(days);
 
-        // Group days into weeks (columns), weeks start Sunday
-        const weeks = [];
-        let week = [];
-        days.forEach(d => {
-          const dow = new Date(d.date + 'T00:00:00').getDay();
-          if (dow === 0 && week.length) { weeks.push(week); week = []; }
-          week.push(d);
-        });
-        if (week.length) weeks.push(week);
+        // ----- Big calendar (About section) -----
+        if (box && loading) {
+          const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+          const CELL = 11, GAP = 3, LABEL_W = 26;
+          const grid = document.createElement('div');
+          grid.style.cssText = `display:grid; grid-auto-flow:column; grid-template-rows:repeat(7, ${CELL}px); gap:${GAP}px; padding-left:${LABEL_W}px; width:max-content;`;
 
-        // Stats
-        let total = 0, best = 0;
-        days.forEach(d => { total += d.count; best = Math.max(best, d.count); });
-        const streak = (() => {
-          let s = 0;
-          for (let i = days.length - 1; i >= 0; i--) {
-            if (days[i].count > 0) s++; else if (s && i !== days.length - 1) break;
-          }
-          return s;
-        })();
-
-        // Build grid
-        const CELL = 11, GAP = 3, LABEL_W = 26;
-        const grid = document.createElement('div');
-        grid.style.cssText = `display:grid; grid-auto-flow:column; grid-template-rows:repeat(7, ${CELL}px); gap:${GAP}px; padding-left:${LABEL_W}px; width:max-content;`;
-
-        weeks.forEach(w => {
-          w.forEach(d => {
-            const c = document.createElement('div');
-            const date = new Date(d.date + 'T00:00:00');
-            c.style.cssText = `width:${CELL}px; height:${CELL}px; border-radius:2px; background:${COLORS[d.level]};`;
-            c.title = `${d.count} contribution${d.count === 1 ? '' : 's'} on ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
-            grid.appendChild(c);
+          weeks.forEach(w => {
+            w.forEach(d => {
+              const c = document.createElement('div');
+              const date = new Date(d.date + 'T00:00:00');
+              c.style.cssText = `width:${CELL}px; height:${CELL}px; border-radius:2px; background:${COLORS[d.level]};`;
+              c.title = `${d.count} contribution${d.count === 1 ? '' : 's'} on ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+              grid.appendChild(c);
+            });
           });
-        });
 
-        loading.remove();
-        box.appendChild(grid);
+          loading.remove();
+          box.appendChild(grid);
 
-        if (totalEl) {
-          totalEl.textContent = `${total.toLocaleString('en-US')} contributions in the last year · longest current streak: ${streak} day${streak === 1 ? '' : 's'} · view profile → github.com/${USER}`;
+          if (totalEl) {
+            totalEl.textContent = `${total.toLocaleString('en-US')} contributions in the last year · longest current streak: ${streak} day${streak === 1 ? '' : 's'} · view profile → github.com/${USER}`;
+          }
+        }
+
+        // ----- Mini calendar (sidebar, under social icons) -----
+        if (mini) {
+          weeks.forEach(w => {
+            w.forEach(d => {
+              const c = document.createElement('div');
+              c.className = 'gh-cell';
+              c.setAttribute('data-level', d.level);
+              const date = new Date(d.date + 'T00:00:00');
+              c.setAttribute('data-tooltip', `${d.count} contribution${d.count === 1 ? '' : 's'} · ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`);
+              mini.appendChild(c);
+            });
+          });
+          if (miniTotal) {
+            miniTotal.textContent = `${total.toLocaleString('en-US')} in the last year →`;
+          }
         }
       })
       .catch(() => {
-        loading.textContent = 'GitHub activity is unavailable right now — check back soon.';
+        if (loading) loading.textContent = 'GitHub activity is unavailable right now — check back soon.';
       });
   });
 })();

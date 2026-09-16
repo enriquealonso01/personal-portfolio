@@ -2529,3 +2529,73 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .project-github-link svg { color: hsl(0, 0%, 84%) !important; }
 a.project-github-link:hover svg { color: var(--vegas-gold, #d9a648) !important; }
+
+/* ---------------------------------------- */
+/* #GH MINI CALENDAR (sidebar)              */
+/* ---------------------------------------- */
+
+.gh-mini-calendar {
+  margin-top: 15px;
+  padding-top: 2px;
+}
+
+.gh-mini-title {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+#gh-sidebar-calendar {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 7px);
+  gap: 2px;
+  width: max-content;
+  max-width: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#gh-sidebar-calendar .gh-cell {
+  width: 7px;
+  height: 7px;
+  border-radius: 1.5px;
+  background: #161b22;
+  cursor: default;
+  position: relative;
+}
+
+#gh-sidebar-calendar .gh-cell[data-level="1"] { background: #0e4429; }
+#gh-sidebar-calendar .gh-cell[data-level="2"] { background: #006d32; }
+#gh-sidebar-calendar .gh-cell[data-level="3"] { background: #26a641; }
+#gh-sidebar-calendar .gh-cell[data-level="4"] { background: #39d353; }
+
+.gh-mini-total {
+  display: block;
+  color: var(--light-gray);
+  font-size: var(--fs-7, 11px);
+  text-decoration: none;
+}
+
+.gh-mini-total:hover { color: var(--orange-yellow-crayola); }
+
+/* Tooltip for sidebar cells */
+#gh-sidebar-calendar .gh-cell:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--eerie-black-2, #1a1a1a);
+  color: var(--white-1, #fff);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--jet, #383838);
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+}
